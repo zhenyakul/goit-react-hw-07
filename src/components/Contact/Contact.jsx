@@ -5,8 +5,9 @@ import { deleteContactData } from "../../redux/contactsOps";
 export default function Contact({ data: { name, phoneNumber, id } }) {
   const dispatch = useDispatch();
 
-  const onDelete = () => {
+  const onDelete = (evt) => {
     dispatch(deleteContactData(id));
+    evt.target.disabled = true;
   };
   return (
     <div className={css.listItem}>
